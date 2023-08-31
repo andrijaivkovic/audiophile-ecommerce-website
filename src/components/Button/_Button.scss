@@ -1,0 +1,61 @@
+.button {
+  @include flex-row;
+  @include flex-center;
+
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+
+  &--right-arrow {
+    @include flex-row;
+    align-items: center;
+
+    gap: 1.2rem;
+
+    color: rgba($color-element-dark, 0.5);
+
+    & > img {
+      translate: 0 -0.3px;
+    }
+
+    &:hover {
+      color: $color-brand;
+    }
+  }
+
+  &--text {
+    text-transform: none;
+  }
+
+  &--orange,
+  &--transparent {
+    font-size: 1.3rem;
+    padding: 1.5rem 3.2rem;
+    font-weight: bold;
+  }
+
+  &--orange {
+    background-color: $color-brand;
+    color: $color-text-light;
+
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+      filter: saturate(0);
+    }
+
+    &:hover {
+      background-color: $color-brand-light;
+    }
+  }
+
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid $color-element-dark;
+
+    &:hover {
+      background-color: $color-element-dark;
+      color: $color-text-light;
+    }
+  }
+}

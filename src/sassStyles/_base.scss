@@ -1,0 +1,57 @@
+html {
+  font-family: "Manrope Variable", sans-serif;
+  font-size: 62.5%;
+
+  overflow-x: hidden;
+
+  background-color: $color-text-light;
+
+  // @include mediaQuery(desktop-large) {
+  //   font-size: 68%;
+  // }
+
+  // @include mediaQuery(desktop-xlarge) {
+  //   font-size: 80%;
+  // }
+}
+
+#root {
+  @include flex-column;
+
+  width: 100%;
+  min-height: 100dvh;
+}
+
+body {
+  position: relative;
+
+  @include flex-column;
+  align-items: center;
+
+  gap: 2.4rem;
+
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--color-text);
+
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
+
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: $color-element-dark;
+}
+
+label {
+  cursor: pointer;
+}
+
+img {
+  color: var(--color-element-dark);
+  font-style: italic;
+}

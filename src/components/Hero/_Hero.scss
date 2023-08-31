@@ -1,0 +1,75 @@
+.hero {
+  @include flex-column;
+  @include flex-center;
+
+  padding: 11rem 2.4rem;
+
+  background-color: $color-element-dark;
+
+  background-image: url("/images/home/mobile/image-header.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+
+  background-blend-mode: lighten;
+
+  @include mediaQuery(tablet) {
+    padding: 17rem 20rem;
+    background-image: url("/images/home/tablet/image-header.jpg");
+  }
+
+  @include mediaQuery(desktop) {
+    padding: 16.5rem;
+
+    align-items: start;
+
+    background-image: url("/images/home/desktop/image-hero.jpg");
+  }
+
+  @include mediaQuery(desktop-large) {
+    padding: 24rem 20vw;
+  }
+
+  &__overline {
+    color: $color-text-light;
+    text-align: center;
+
+    margin-bottom: 1.6rem;
+
+    opacity: 0.5;
+
+    @include mediaQuery(desktop) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &__heading {
+    color: $color-text-light;
+    text-align: center;
+
+    margin-bottom: 2.4rem;
+
+    @include mediaQuery(desktop) {
+      max-width: 40rem;
+      text-align: start;
+    }
+  }
+
+  &__body {
+    color: $color-text-light;
+    text-align: center;
+
+    margin-bottom: 2.8rem;
+
+    opacity: 0.5;
+
+    @include mediaQuery(tablet) {
+      max-width: 35rem;
+      margin-bottom: 4rem;
+    }
+
+    @include mediaQuery(desktop) {
+      text-align: start;
+    }
+  }
+}

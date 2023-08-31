@@ -1,0 +1,19 @@
+.home {
+  &__hero {
+    margin-bottom: 5rem;
+
+    @include mediaQuery(desktop) {
+      margin-bottom: 12rem;
+    }
+  }
+
+  &__product-categories,
+  &__featured-products,
+  &__claim {
+    margin-bottom: 12rem;
+
+    @include mediaQuery(desktop) {
+      margin-bottom: 18rem;
+    }
+  }
+}

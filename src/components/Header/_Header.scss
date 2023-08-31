@@ -1,0 +1,13 @@
+.header {
+  padding: 3.2rem 0;
+  background-color: $color-element-dark;
+
+  & > h2 {
+    color: $color-text-light;
+    text-align: center;
+  }
+
+  @include mediaQuery(tablet) {
+    padding: 10rem 0;
+  }
+}

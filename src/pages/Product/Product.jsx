@@ -1,0 +1,50 @@
+import { useEffect } from "react";
+
+import { useNavigate, useParams } from "react-router";
+import { v4 as uuidv4 } from "uuid";
+
+import Main from "../../components/Main/Main";
+import Button from "../../components/Button/Button";
+
+import ProductCategories from "../../components/ProductCategories/ProductCategories";
+import Claim from "../../components/Claim/Claim";
+import Footer from "../../components/Footer/Footer";
+import ProductDetails from "../../components/ProductDetails/ProductDetails";
+
+import { products } from "../../../data";
+
+const Product = () => {
+  const { productName } = useParams();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = `Audiophile | HiFi Store | ${product.name}`;
+
+    return () => {
+      document.title = "Audiophile | HiFi Store";
+    };
+  });
+
+  const product = products.find((product) => product.slug === productName);
+
+  return (
+    <>
+      <Main key={uuidv4()} className="product__main">
+        <Button
+          isLink={false}
+          onClick={() => navigate(-1)}
+          className="product__back-button"
+          kind="text"
+          buttonText="Go back"
+        />
+        <ProductDetails product={product} />
+        <ProductCategories className="product__product-categories" />
+        <Claim className="product__claim" />
+      </Main>
+      <Footer />
+    </>
+  );
+};
+
+export default Product;

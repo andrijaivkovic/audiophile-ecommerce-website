@@ -1,0 +1,15 @@
+.product-page {
+  &__product-list,
+  &__product-categories,
+  &__claim {
+    margin-bottom: 12rem;
+  }
+
+  &__header {
+    margin-bottom: 6.4rem;
+
+    @include mediaQuery(desktop) {
+      margin-bottom: 16rem;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.product {
+  &__back-button {
+    padding-left: 2.4rem;
+    margin: 1.6rem 0 2.4rem 0;
+    opacity: 0.5;
+    align-self: flex-start;
+
+    @include mediaQuery(tablet) {
+      margin: 3.2rem 0 2.4rem 0;
+      padding-left: 4rem;
+    }
+
+    @include mediaQuery(desktop) {
+      margin: 8rem 0 5.6rem 0;
+      padding-left: 16.5rem;
+    }
+
+    @include mediaQuery(desktop-large) {
+      padding-left: 20vw;
+    }
+  }
+
+  &__product-categories,
+  &__claim {
+    margin-bottom: 12rem;
+  }
+}

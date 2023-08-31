@@ -1,0 +1,22 @@
+.toast-list {
+  @include flex-column;
+  gap: 1.6rem;
+
+  position: fixed;
+
+  bottom: 2rem;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 50;
+
+  @include mediaQuery(desktop) {
+    bottom: 4rem;
+    right: 4rem;
+
+    transform: unset;
+    left: unset;
+  }
+}

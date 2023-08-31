@@ -1,0 +1,79 @@
+h1 {
+  // desktop: 5.6rem
+  font-size: 3.6rem;
+  text-transform: uppercase;
+  // desktop: 2px
+  letter-spacing: 1.3px;
+  line-height: 40px;
+
+  @include mediaQuery(tablet) {
+    font-size: 5.6rem;
+    letter-spacing: 2px;
+    line-height: 58px;
+  }
+}
+
+h2 {
+  // desktop: 4rem
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  // desktop: 1,5px
+  letter-spacing: 1px;
+
+  @include mediaQuery(tablet) {
+    font-size: 4rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+h3 {
+  // desktop: 3.2rem;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  // desktop: 1.15px
+  letter-spacing: 0.86px;
+
+  @include mediaQuery(tablet) {
+    font-size: 3.2rem;
+    letter-spacing: 1.15px;
+  }
+}
+
+h4 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h5 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+}
+
+h6 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+p.overline {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+p.sub-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-brand;
+}
+
+p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 25px;
+}
