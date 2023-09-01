@@ -14,7 +14,7 @@
   }
 
   @include mediaQuery(desktop) {
-    padding: 3.6rem 15.6rem;
+    padding: 3.6rem 17.5vw;
   }
 
   @include mediaQuery(desktop-large) {
@@ -132,8 +132,6 @@
     left: 50%;
     width: 90%;
 
-    transform: translateX(-50%);
-
     padding: 3.2rem 2.8rem;
 
     border-radius: 8px;
@@ -144,7 +142,7 @@
       width: 38rem;
       right: 5%;
       left: unset;
-      transform: unset;
+      translate: 50% 0;
     }
 
     &-heading {

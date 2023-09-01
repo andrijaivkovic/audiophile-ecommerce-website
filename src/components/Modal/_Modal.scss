@@ -24,8 +24,6 @@
     left: 50%;
     width: 90%;
 
-    transform: translateX(-50%);
-
     padding: 3.2rem;
     background-color: $color-text-light;
 
@@ -41,7 +39,7 @@
       max-width: 54rem;
     }
 
-    @include mediaQuery(desktop) {
+    @include mediaQuery(desktop-large) {
       max-width: 35vw;
     }
   }
