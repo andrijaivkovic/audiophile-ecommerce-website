@@ -39,7 +39,7 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="navigation">
+      <nav id="main-navigation" className="navigation">
         <div className="navigation__content">
           <button
             className="navigation__menu-button"

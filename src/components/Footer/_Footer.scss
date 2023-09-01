@@ -167,6 +167,10 @@
 
     background-color: $color-element-light;
 
+    & > p {
+      display: none;
+    }
+
     &:hover {
       background-color: $color-brand;
     }

@@ -6,7 +6,7 @@ const Footer = ({ className = "" }) => {
   return (
     <footer className={`footer ${className}`}>
       <img className="footer__logo" src={footerLogo} alt="Audiophile logo." />
-      <nav className="footer__navigation">
+      <nav id="footer-navigation" className="footer__navigation">
         <ul className="footer__link-list">
           <li className="footer__link">
             <NavLink to="/home">Home</NavLink>
@@ -35,15 +35,21 @@ const Footer = ({ className = "" }) => {
         <a
           className="footer__social-link footer__social-link--facebook"
           href="#"
-        ></a>
+        >
+          <p>Facebook</p>
+        </a>
         <a
           className="footer__social-link footer__social-link--twitter"
           href="#"
-        ></a>
+        >
+          <p>Twitter</p>
+        </a>
         <a
           className="footer__social-link footer__social-link--instagram"
           href="#"
-        ></a>
+        >
+          <p>Instagram</p>
+        </a>
       </div>
     </footer>
   );
