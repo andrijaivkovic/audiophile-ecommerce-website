@@ -4,31 +4,16 @@
 
   padding: 11rem 2.4rem;
 
-  background-color: $color-element-dark;
-
-  background-image: url("/images/home/mobile/image-header.jpg");
-  background-color: #10100f;
-
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  background-blend-mode: lighten;
 
   @include mediaQuery(tablet) {
     padding: 17rem 20rem;
-
-    background-size: cover;
-    background-image: url("/images/home/tablet/image-header.jpg");
   }
 
   @include mediaQuery(desktop) {
     padding: 17.5vw;
 
     align-items: start;
-
-    background-size: contain;
-    background-image: url("/images/home/desktop/image-hero.jpg");
   }
 
   @include mediaQuery(desktop-large) {

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Main from "../../components/Main/Main";
 import Hero from "../../components/Hero/Hero";
 import ProductCategories from "../../components/ProductCategories/ProductCategories";
@@ -6,7 +8,6 @@ import Claim from "../../components/Claim/Claim";
 import Footer from "../../components/Footer/Footer";
 
 import Button from "../../components/Button/Button";
-import { useEffect } from "react";
 
 const Home = () => {
   useEffect(() => {

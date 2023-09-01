@@ -2,8 +2,24 @@
   &__hero {
     margin-bottom: 5rem;
 
+    background-color: $color-element-dark;
+
+    background-image: url("/images/home/mobile/image-header.jpg");
+    background-color: #10100f;
+
+    background-position: center;
+    background-size: cover;
+
+    @include mediaQuery(tablet) {
+      background-size: cover;
+      background-image: url("/images/home/tablet/image-header.jpg");
+    }
+
     @include mediaQuery(desktop) {
       margin-bottom: 10rem;
+
+      background-size: contain;
+      background-image: url("/images/home/desktop/image-hero.jpg");
     }
   }
 
