@@ -31,7 +31,7 @@ Users should be able to:
   - Shipping always adds $50 to the order
   - VAT is calculated as 20% of the product total, excluding shipping
 - See an order confirmation modal after checking out with an order summary
-- TODO / **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- **IMPLEMENTED** / **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
 
 ### Screenshot
 
@@ -40,7 +40,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: TBA
-- Live Site URL: TBA
+- Live Site URL: [Link](https://audiophile-ecommerce-site-ai.netlify.app/product/xx99-mark-two-headphones)
 
 ## My process
 
