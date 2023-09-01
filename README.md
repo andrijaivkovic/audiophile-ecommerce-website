@@ -54,7 +54,7 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [ReactRouter](https://reactrouter.com/en/main) - React Routing Library
-- TBA [FramerMotion](https://www.framer.com/motion/) - React Animation Library
+- [FramerMotion](https://www.framer.com/motion/) - React Animation Library
 
 ### What I learned
 
