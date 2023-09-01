@@ -32,6 +32,7 @@ Users should be able to:
   - VAT is calculated as 20% of the product total, excluding shipping
 - See an order confirmation modal after checking out with an order summary
 - **IMPLEMENTED** / **Bonus**: Keep track of what's in the cart, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- **ADDITION**: Toast notifications for successful or failed actions
 
 ### Screenshot
 
