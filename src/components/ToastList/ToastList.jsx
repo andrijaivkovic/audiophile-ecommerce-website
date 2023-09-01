@@ -1,4 +1,7 @@
+import { AnimatePresence } from "framer-motion";
+
 import { useApp } from "../../contexts/AppContext/AppContext";
+
 import Toast from "../Toast/Toast";
 
 const ToastList = () => {
@@ -6,16 +9,18 @@ const ToastList = () => {
 
   return (
     <div className="toast-list">
-      {toastNotifications.map((toast) => {
-        return (
-          <Toast
-            key={toast.id}
-            id={toast.id}
-            type={toast.type}
-            message={toast.message}
-          />
-        );
-      })}
+      <AnimatePresence initial="false">
+        {toastNotifications.map((toast) => {
+          return (
+            <Toast
+              key={toast.id}
+              id={toast.id}
+              type={toast.type}
+              message={toast.message}
+            />
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 };

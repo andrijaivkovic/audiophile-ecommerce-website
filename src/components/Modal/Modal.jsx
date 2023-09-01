@@ -1,8 +1,29 @@
+import { AnimatePresence, motion } from "framer-motion";
+
 const Modal = ({ children, callback }) => {
   return (
     <>
-      <div onClick={callback} className="modal__backdrop"></div>
-      <div className="modal__container">{children}</div>
+      <AnimatePresence initial="false">
+        <motion.div
+          key={1}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          onClick={callback}
+          className="modal__backdrop"
+        ></motion.div>
+        <motion.div
+          key={2}
+          initial={{ opacity: 0, scale: 0.95, translateX: "-50%" }}
+          animate={{ opacity: 1, scale: 1, translateX: "-50%" }}
+          exit={{ opacity: 0, scale: 0.95, translateX: "-50%" }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          className="modal__container"
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };

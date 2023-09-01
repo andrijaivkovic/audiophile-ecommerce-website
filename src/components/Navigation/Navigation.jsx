@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
 import { useApp } from "../../contexts/AppContext/AppContext";
@@ -91,105 +92,127 @@ const Navigation = () => {
             <img src={cartIcon} alt="Shopping cart icon." />
           </button>
         </div>
-        {isMenuOpen && (
-          <div className="navigation__menu">
-            <ProductCategories />
-          </div>
-        )}
-        {isCartOpen && (
-          <div className="navigation__cart">
-            <div className="navigation__cart-heading">
-              <h6>Cart ({cartItems.length})</h6>
-              <Button
-                onClick={() => {
-                  dispatchCart({ type: "cart/removedAll" });
-                  dispatchApp({
-                    type: "toast/added",
-                    payload: {
-                      type: "success",
-                      message: `Cart emptied.`,
-                      id: uuidv4(),
-                    },
-                  });
-                  dispatchApp({ type: "cart/toggled" });
-                }}
-                isLink={false}
-                kind="text"
-                buttonText="Remove all"
-              />
-            </div>
-            <div className="navigation__cart-items">
-              {cartItems.length > 0 ? (
-                cartItems.map((cartItem) => {
-                  return (
-                    <div
-                      key={cartItem.product.id}
-                      className="navigation__cart-item"
-                    >
-                      <div className="navigation__cart-item-image-container">
-                        <img
-                          className="navigation__cart-item-image-container"
-                          src={cartItem.product.image.mobile}
-                          alt="123"
+        <AnimatePresence initial="false">
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="navigation__menu"
+            >
+              <ProductCategories isAnimated={true} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence initial="false">
+          {isCartOpen && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, translateX: "-50%" }}
+              animate={{ opacity: 1, scale: 1, translateX: "-50%" }}
+              exit={{ opacity: 0, scale: 0.95, translateX: "-50%" }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              className="navigation__cart"
+            >
+              <div className="navigation__cart-heading">
+                <h6>Cart ({cartItems.length})</h6>
+                <Button
+                  onClick={() => {
+                    dispatchCart({ type: "cart/removedAll" });
+                    dispatchApp({
+                      type: "toast/added",
+                      payload: {
+                        type: "success",
+                        message: `Cart emptied.`,
+                        id: uuidv4(),
+                      },
+                    });
+                    dispatchApp({ type: "cart/toggled" });
+                  }}
+                  isLink={false}
+                  kind="text"
+                  buttonText="Remove all"
+                />
+              </div>
+              <div className="navigation__cart-items">
+                {cartItems.length > 0 ? (
+                  cartItems.map((cartItem) => {
+                    return (
+                      <div
+                        key={cartItem.product.id}
+                        className="navigation__cart-item"
+                      >
+                        <div className="navigation__cart-item-image-container">
+                          <img
+                            className="navigation__cart-item-image-container"
+                            src={cartItem.product.image.mobile}
+                            alt="123"
+                          />
+                        </div>
+                        <div className="navigation__cart-item-info-container">
+                          <p className="navigation__cart-item-name">
+                            {cartItem.product.cartName}
+                          </p>
+                          <p className="navigation__cart-item-price">
+                            {usDollar.format(cartItem.product.price)}
+                          </p>
+                        </div>
+                        <ItemAmountSelect
+                          amount={cartItem.amount}
+                          onDecrease={() =>
+                            dispatchCart({
+                              type: "cart/decreasedAmount",
+                              payload: cartItem.product.id,
+                            })
+                          }
+                          onIncrease={() =>
+                            dispatchCart({
+                              type: "cart/increasedAmount",
+                              payload: cartItem.product.id,
+                            })
+                          }
                         />
                       </div>
-                      <div className="navigation__cart-item-info-container">
-                        <p className="navigation__cart-item-name">
-                          {cartItem.product.cartName}
-                        </p>
-                        <p className="navigation__cart-item-price">
-                          {usDollar.format(cartItem.product.price)}
-                        </p>
-                      </div>
-                      <ItemAmountSelect
-                        amount={cartItem.amount}
-                        onDecrease={() =>
-                          dispatchCart({
-                            type: "cart/decreasedAmount",
-                            payload: cartItem.product.id,
-                          })
-                        }
-                        onIncrease={() =>
-                          dispatchCart({
-                            type: "cart/increasedAmount",
-                            payload: cartItem.product.id,
-                          })
-                        }
-                      />
-                    </div>
-                  );
-                })
-              ) : (
-                <p>Your cart is empty.</p>
-              )}
-            </div>
-            <div className="navigation__cart-checkout">
-              <p className="navigation__cart-total-text">Total</p>
-              <p className="navigation__cart-total-number">
-                {usDollar.format(cartTotalPrice)}
-              </p>
-              <Button
-                isDisabled={!cartItemsAmount}
-                onClick={() =>
-                  dispatchApp({ type: "cart/toggled", payload: !isCartOpen })
-                }
-                linkTo="/checkout"
-                isLink={true}
-                kind="orange"
-                buttonText={`${
-                  cartItemsAmount ? "Checkout" : "Your cart is empty"
-                } `}
-              />
-            </div>
-          </div>
-        )}
+                    );
+                  })
+                ) : (
+                  <p>Your cart is empty.</p>
+                )}
+              </div>
+              <div className="navigation__cart-checkout">
+                <p className="navigation__cart-total-text">Total</p>
+                <p className="navigation__cart-total-number">
+                  {usDollar.format(cartTotalPrice)}
+                </p>
+                <Button
+                  isDisabled={!cartItemsAmount}
+                  onClick={() =>
+                    dispatchApp({ type: "cart/toggled", payload: !isCartOpen })
+                  }
+                  linkTo="/checkout"
+                  isLink={true}
+                  kind="orange"
+                  buttonText={`${
+                    cartItemsAmount ? "Checkout" : "Your cart is empty"
+                  } `}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
-      {isBackdropShown && (
-        <div
-          onClick={() => dispatchApp({ type: "all/closed" })}
-          className="navigation__backdrop"
-        ></div>
-      )}
+      <AnimatePresence initial="false">
+        {isBackdropShown && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            onClick={() => dispatchApp({ type: "all/closed" })}
+            className="navigation__backdrop"
+          ></motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
