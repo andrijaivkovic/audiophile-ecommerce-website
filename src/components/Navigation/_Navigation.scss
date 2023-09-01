@@ -145,6 +145,10 @@
       translate: 50% 0;
     }
 
+    @include mediaQuery(desktop) {
+      right: 15%;
+    }
+
     &-heading {
       @include flex-row;
       align-items: center;
