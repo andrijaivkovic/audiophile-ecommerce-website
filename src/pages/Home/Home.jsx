@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import Main from "../../components/Main/Main";
 import Hero from "../../components/Hero/Hero";
 import ProductCategories from "../../components/ProductCategories/ProductCategories";
