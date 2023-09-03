@@ -1,3 +1,7 @@
+import { v4 as uuidv4 } from "uuid";
+
+import useTitle from "../../hooks/useTitle";
+
 import Main from "../../components/Main/Main";
 import Header from "../../components/Header/Header";
 import ProductList from "../../components/ProductList/ProductList";
@@ -5,10 +9,7 @@ import ProductCategories from "../../components/ProductCategories/ProductCategor
 import Claim from "../../components/Claim/Claim";
 import Footer from "../../components/Footer/Footer";
 
-import { v4 as uuidv4 } from "uuid";
-
 import { products } from "../../../data";
-import { useEffect } from "react";
 
 const firstCapitalLetter = (word) => {
   const letters = word.split("");
@@ -19,15 +20,7 @@ const firstCapitalLetter = (word) => {
 };
 
 const ProductCategoryPage = ({ productCategory }) => {
-  useEffect(() => {
-    document.title = `Audiophile | HiFi Store | ${firstCapitalLetter(
-      productCategory
-    )} `;
-
-    return () => {
-      document.title = "Audiophile | HiFi Store";
-    };
-  });
+  useTitle(firstCapitalLetter(productCategory));
 
   const filteredProducts = products
     .filter((product) => product.category === productCategory)
