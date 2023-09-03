@@ -1,15 +1,8 @@
-import { useEffect } from "react";
-
 import Main from "../../components/Main/Main";
+import useTitle from "../../hooks/useTitle";
 
 const PageNotFound = () => {
-  useEffect(() => {
-    document.title = `Audiophile | HiFi Store | 404`;
-
-    return () => {
-      document.title = "Audiophile | HiFi Store";
-    };
-  });
+  useTitle("404");
 
   return (
     <Main className="page-not-found__main">

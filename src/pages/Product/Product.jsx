@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { useNavigate, useParams } from "react-router";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,21 +10,16 @@ import Footer from "../../components/Footer/Footer";
 import ProductDetails from "../../components/ProductDetails/ProductDetails";
 
 import { products } from "../../../data";
+import useTitle from "../../hooks/useTitle";
 
 const Product = () => {
   const { productName } = useParams();
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    document.title = `Audiophile | HiFi Store | ${product.name}`;
-
-    return () => {
-      document.title = "Audiophile | HiFi Store";
-    };
-  });
-
   const product = products.find((product) => product.slug === productName);
+
+  useTitle(product.name);
 
   return (
     <>

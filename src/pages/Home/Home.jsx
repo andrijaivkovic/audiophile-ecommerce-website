@@ -8,15 +8,10 @@ import Claim from "../../components/Claim/Claim";
 import Footer from "../../components/Footer/Footer";
 
 import Button from "../../components/Button/Button";
+import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
-  useEffect(() => {
-    document.title = "Audiophile | HiFi Store | Home ";
-
-    return () => {
-      document.title = "Audiophile | HiFi Store";
-    };
-  });
+  useTitle("Home");
 
   return (
     <>

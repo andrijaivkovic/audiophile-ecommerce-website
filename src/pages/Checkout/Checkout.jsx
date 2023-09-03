@@ -11,6 +11,7 @@ import Modal from "../../components/Modal/Modal";
 import checkoutOrderConfirmIcon from "/images/checkout/icon-order-confirmation.svg";
 import cashOnDeliveryIcon from "/images/checkout/icon-cash-on-delivery.svg";
 import Input from "../../components/Input/Input";
+import useTitle from "../../hooks/useTitle";
 
 const usDollar = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -28,13 +29,7 @@ const Checkout = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    document.title = `Audiophile | HiFi Store | Checkout`;
-
-    return () => {
-      document.title = "Audiophile | HiFi Store";
-    };
-  });
+  useTitle("Checkout");
 
   const {
     cartItems,
