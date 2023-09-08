@@ -16,11 +16,7 @@ import cartIcon from "/images/shared/desktop/icon-cart.svg";
 import Button from "../Button/Button";
 import ItemAmountSelect from "../ItemAmountSelect/ItemAmountSelect";
 
-const usDollar = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
+import { numberToCurrency } from "../../utils/helpers";
 
 const Navigation = () => {
   const {
@@ -154,7 +150,7 @@ const Navigation = () => {
                             {cartItem.product.cartName}
                           </p>
                           <p className="navigation__cart-item-price">
-                            {usDollar.format(cartItem.product.price)}
+                            {numberToCurrency(cartItem.product.price)}
                           </p>
                         </div>
                         <ItemAmountSelect
@@ -182,7 +178,7 @@ const Navigation = () => {
               <div className="navigation__cart-checkout">
                 <p className="navigation__cart-total-text">Total</p>
                 <p className="navigation__cart-total-number">
-                  {usDollar.format(cartTotalPrice)}
+                  {numberToCurrency(cartTotalPrice)}
                 </p>
                 <Button
                   isDisabled={!cartItemsAmount}

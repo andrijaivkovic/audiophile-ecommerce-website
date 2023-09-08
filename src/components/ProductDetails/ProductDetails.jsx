@@ -8,11 +8,7 @@ import { useCart } from "../../contexts/CartContext/CartContext";
 import Button from "../../components/Button/Button";
 import ItemAmountSelect from "../ItemAmountSelect/ItemAmountSelect";
 
-const usDollar = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
+import { numberToCurrency } from "../../utils/helpers";
 
 const ProductDetails = ({ product, className = "" }) => {
   const [addToCartAmount, setAddToCartAmount] = useState(1);
@@ -79,7 +75,7 @@ const ProductDetails = ({ product, className = "" }) => {
           )}
           <h2 className="product__name">{product.name}</h2>
           <p className="product__description">{product.description}</p>
-          <p className="product__price">{usDollar.format(product.price)}</p>
+          <p className="product__price">{numberToCurrency(product.price)}</p>
           <div className="product__add-to-cart-container">
             <ItemAmountSelect
               amount={addToCartAmount}

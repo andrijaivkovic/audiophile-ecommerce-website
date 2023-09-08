@@ -13,11 +13,7 @@ import cashOnDeliveryIcon from "/images/checkout/icon-cash-on-delivery.svg";
 import Input from "../../components/Input/Input";
 import useTitle from "../../hooks/useTitle";
 
-const usDollar = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
+import { numberToCurrency } from "../../utils/helpers";
 
 const Checkout = () => {
   const [inputs, setInputs] = useState({ paymentMethod: "cashOnDelivery" });
@@ -277,7 +273,7 @@ const Checkout = () => {
                         {cartItem.product.cartName}
                       </p>
                       <p className="checkout__form-summary-item-price">
-                        {usDollar.format(cartItem.product.price)}
+                        {numberToCurrency(cartItem.product.price)}
                       </p>
                     </div>
                     <p className="checkout__form-summary-item-amount">
@@ -290,7 +286,7 @@ const Checkout = () => {
               <div className="checkout__form-summary-price-kind">
                 <p className="checkout__form-summary-price-kind-name">Total</p>
                 <p className="checkout__form-summary-price-kind-amount">
-                  {usDollar.format(cartTotalPrice)}
+                  {numberToCurrency(cartTotalPrice)}
                 </p>
               </div>
               <div className="checkout__form-summary-price-kind">
@@ -298,7 +294,7 @@ const Checkout = () => {
                   Shipping
                 </p>
                 <p className="checkout__form-summary-price-kind-amount">
-                  {usDollar.format(cartShippingPrice)}
+                  {numberToCurrency(cartShippingPrice)}
                 </p>
               </div>
               <div className="checkout__form-summary-price-kind">
@@ -306,7 +302,7 @@ const Checkout = () => {
                   VAT (Included)
                 </p>
                 <p className="checkout__form-summary-price-kind-amount">
-                  {usDollar.format(cartVat)}
+                  {numberToCurrency(cartVat)}
                 </p>
               </div>
               <div className="checkout__form-summary-price-kind grand-total">
@@ -314,7 +310,7 @@ const Checkout = () => {
                   Grand Total
                 </p>
                 <p className="checkout__form-summary-price-kind-amount grand-total">
-                  {usDollar.format(cartGrandTotal)}
+                  {numberToCurrency(cartGrandTotal)}
                 </p>
               </div>
             </div>
@@ -361,7 +357,7 @@ const Checkout = () => {
                         {order.current.at(0).product.cartName}
                       </p>
                       <p className="checkout__form-summary-item-price">
-                        {usDollar.format(order.current.at(0).product.price)}
+                        {numberToCurrency(order.current.at(0).product.price)}
                       </p>
                     </div>
                     <p className="checkout__form-summary-item-amount">
@@ -385,7 +381,7 @@ const Checkout = () => {
                               {item.product.cartName}
                             </p>
                             <p className="checkout__form-summary-item-price">
-                              {usDollar.format(item.product.price)}
+                              {numberToCurrency(item.product.price)}
                             </p>
                           </div>
                           <p className="checkout__form-summary-item-amount">
@@ -417,7 +413,7 @@ const Checkout = () => {
               <p>Grand total</p>
               <h6>
                 {orderGrantTotal.current
-                  ? usDollar.format(orderGrantTotal.current)
+                  ? numberToCurrency(orderGrantTotal.current)
                   : "N/A"}
               </h6>
             </div>
