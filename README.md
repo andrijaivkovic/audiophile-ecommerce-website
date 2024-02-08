@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: TBA
-- Live Site URL: [Link](https://audiophile-ecommerce-site-ai.netlify.app/product/xx99-mark-two-headphones)
+- Solution URL: [Link](https://www.frontendmentor.io/solutions/audiophile-ecommerce-site-built-using-react-and-sass-LaTOZF1j42)
+- Live Site URL: [Link](https://audiophile-ecommerce-site-ai.netlify.app/)
 
 ## My process
 
